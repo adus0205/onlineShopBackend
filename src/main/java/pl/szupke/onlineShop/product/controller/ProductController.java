@@ -17,7 +17,6 @@ public class ProductController {
 
     @GetMapping("/products")
     public Page<Product> getProduct(Pageable pageable){
-
         return productService.getProduct(pageable);
     }
 }
