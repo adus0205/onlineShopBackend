@@ -1,5 +1,6 @@
 package pl.szupke.onlineShop.admin.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,12 +27,17 @@ public class AdminProductController {
     }
 
     @PostMapping("/admin/products")
-    public AdminProduct createProduct(@RequestBody AdminProductDto adminProductDto){
+    public AdminProduct createProduct(@RequestBody @Valid AdminProductDto adminProductDto){
         return adminProductService.createProduct(mapAdminProduct(adminProductDto, EMPTY_ID));
     }
     @PutMapping("/admin/products/{id}")
-    public AdminProduct updateProduct(@RequestBody AdminProductDto adminProductDto, @PathVariable Long id){
+    public AdminProduct updateProduct(@RequestBody @Valid AdminProductDto adminProductDto, @PathVariable Long id){
         return adminProductService.updateProduct(mapAdminProduct(adminProductDto, id));
+    }
+
+    @DeleteMapping("/admin/products/{id}")
+    public void deleteProduct(@PathVariable Long id){
+        adminProductService.deleteProduct(id);
     }
 
     private AdminProduct mapAdminProduct(AdminProductDto adminProductDto, Long id) {
@@ -44,4 +50,5 @@ public class AdminProductController {
                 .currency(adminProductDto.getCurrency())
                 .build();
     }
+
 }
