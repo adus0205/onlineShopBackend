@@ -18,7 +18,7 @@ class ExsistingFileRenameUtils {
 
     private static String renamedAndCheck(Path uploadDir, String filename) {
         String newName = renameFileName(filename);
-        if (Files.exists(uploadDir.resolve(filename))){
+        if (Files.exists(uploadDir.resolve(newName))){
             newName = renamedAndCheck(uploadDir, newName);
         }
         return newName;
