@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.admin.service;
+package pl.szupke.onlineShop.admin.product.service;
 
 import org.apache.commons.io.FilenameUtils;
 

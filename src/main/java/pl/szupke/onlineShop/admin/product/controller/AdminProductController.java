@@ -1,10 +1,9 @@
-package pl.szupke.onlineShop.admin.controller;
+package pl.szupke.onlineShop.admin.product.controller;
 
 
 import com.github.slugify.Slugify;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,18 +11,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.szupke.onlineShop.admin.controller.dto.AdminProductDto;
-import pl.szupke.onlineShop.admin.controller.dto.UploadResponse;
-import pl.szupke.onlineShop.admin.model.AdminProduct;
-import pl.szupke.onlineShop.admin.service.AdminProductImageService;
-import pl.szupke.onlineShop.admin.service.AdminProductService;
+import pl.szupke.onlineShop.admin.product.model.AdminProduct;
+import pl.szupke.onlineShop.admin.product.service.AdminProductService;
+import pl.szupke.onlineShop.admin.product.controller.dto.AdminProductDto;
+import pl.szupke.onlineShop.admin.product.controller.dto.UploadResponse;
+import pl.szupke.onlineShop.admin.product.service.AdminProductImageService;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @RestController
 @RequiredArgsConstructor

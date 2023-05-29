@@ -1,9 +1,11 @@
-package pl.szupke.onlineShop.admin.service;
+package pl.szupke.onlineShop.admin.product.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import pl.szupke.onlineShop.admin.ExsistingFileRenameUtils;
+import pl.szupke.onlineShop.admin.UploadedFilesNameUtils;
 
 import java.io.IOException;
 import java.io.InputStream;

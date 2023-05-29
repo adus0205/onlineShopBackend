@@ -1,13 +1,14 @@
-package pl.szupke.onlineShop.admin.service;
+package pl.szupke.onlineShop.admin.product.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
+import pl.szupke.onlineShop.admin.product.service.ExsistingFileRenameUtils;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ExsistingFileRenameUtilsTest {
     @Test

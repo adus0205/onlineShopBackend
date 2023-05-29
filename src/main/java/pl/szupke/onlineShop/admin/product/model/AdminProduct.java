@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.admin.model;
+package pl.szupke.onlineShop.admin.product.model;
 
 
 import jakarta.persistence.*;
