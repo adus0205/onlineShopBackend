@@ -4,9 +4,8 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
-class ExsistingFileRenameUtils {
+public class ExsistingFileRenameUtils {
 
     public static String renameIfExists(Path uploadDir, String filename) {
         if (Files.exists(uploadDir.resolve(filename))){
