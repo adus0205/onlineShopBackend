@@ -2,7 +2,7 @@ package pl.szupke.onlineShop.admin.product.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import pl.szupke.onlineShop.admin.product.service.ExsistingFileRenameUtils;
+import pl.szupke.onlineShop.admin.common.utils.ExsistingFileRenameUtils;
 
 import java.io.IOException;
 import java.nio.file.Files;

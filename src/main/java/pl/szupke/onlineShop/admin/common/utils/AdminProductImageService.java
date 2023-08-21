@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.admin.product.service;
+package pl.szupke.onlineShop.admin.common.utils;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResourceLoader;
@@ -17,7 +17,7 @@ public class AdminProductImageService {
     @Value("${app.uploadDir}")
     private String uploadDir;
     public String uploadImage(String filename, InputStream inputStream){
-        String newFileName = UploadedFilesNameUtils.slugifyFileName(filename);
+        String newFileName = SligyfyUtils.slugifyFileName(filename);
         newFileName = ExsistingFileRenameUtils.renameIfExists(Path.of(uploadDir),filename);
         Path filePath = Paths.get(uploadDir).resolve(newFileName);
         try(OutputStream outputStream = Files.newOutputStream(filePath)) {

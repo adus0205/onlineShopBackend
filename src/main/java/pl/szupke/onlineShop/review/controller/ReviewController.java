@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pl.szupke.onlineShop.review.controller.dto.ReviewDto;
-import pl.szupke.onlineShop.review.model.Review;
+import pl.szupke.onlineShop.common.model.Review;
 import pl.szupke.onlineShop.review.service.ReviewService;
 @RequiredArgsConstructor
 @RestController

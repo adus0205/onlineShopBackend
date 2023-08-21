@@ -1,6 +1,5 @@
 package pl.szupke.onlineShop.admin.category.controller;
 
-import com.github.slugify.Slugify;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.szupke.onlineShop.admin.category.controller.dto.AdminCategoryDto;
@@ -8,6 +7,8 @@ import pl.szupke.onlineShop.admin.category.model.AdminCategory;
 import pl.szupke.onlineShop.admin.category.service.AdminCategoryService;
 
 import java.util.List;
+
+import static pl.szupke.onlineShop.admin.common.utils.SligyfyUtils.slugifySlug;
 
 @RestController
 @RequestMapping("/admin/categories")
@@ -37,13 +38,8 @@ public class AdminCategoryController {
                 .id(id)
                 .name(adminCategoryDto.getName())
                 .description(adminCategoryDto.getDescription())
-                .slug(slugifyCategoryName(adminCategoryDto.getSlug()))
+                .slug(slugifySlug(adminCategoryDto.getSlug()))
                 .build();
-    }
-
-    private String slugifyCategoryName(String slug) {
-        Slugify slugify = new Slugify();
-        return slugify.withCustomReplacement("_","-").slugify(slug);
     }
 
     @PutMapping("/{id}")

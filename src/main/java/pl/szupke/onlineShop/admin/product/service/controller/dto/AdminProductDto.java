@@ -1,11 +1,11 @@
-package pl.szupke.onlineShop.admin.product.controller.dto;
+package pl.szupke.onlineShop.admin.product.service.controller.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
-import pl.szupke.onlineShop.admin.product.model.AdminProductCurrency;
+import pl.szupke.onlineShop.admin.product.service.model.AdminProductCurrency;
 
 import java.math.BigDecimal;
 

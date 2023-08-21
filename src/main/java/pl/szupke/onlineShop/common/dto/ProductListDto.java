@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.product.controller.dto;
+package pl.szupke.onlineShop.common.dto;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.szupke.onlineShop.category.model.Category;
-import pl.szupke.onlineShop.category.model.CategoryProductDto;
+import pl.szupke.onlineShop.common.model.Category;
+import pl.szupke.onlineShop.category.dto.CategoryProductDto;
 import pl.szupke.onlineShop.category.service.CategoryService;
 
 import java.util.List;

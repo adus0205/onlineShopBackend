@@ -6,12 +6,12 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.szupke.onlineShop.category.model.Category;
-import pl.szupke.onlineShop.category.model.CategoryProductDto;
+import pl.szupke.onlineShop.common.model.Category;
+import pl.szupke.onlineShop.category.dto.CategoryProductDto;
 import pl.szupke.onlineShop.category.repository.CategoryRepository;
-import pl.szupke.onlineShop.product.controller.dto.ProductListDto;
-import pl.szupke.onlineShop.product.model.Product;
-import pl.szupke.onlineShop.product.repository.ProductRepository;
+import pl.szupke.onlineShop.common.dto.ProductListDto;
+import pl.szupke.onlineShop.common.model.Product;
+import pl.szupke.onlineShop.common.repository.ProductRepository;
 
 import java.util.List;
 

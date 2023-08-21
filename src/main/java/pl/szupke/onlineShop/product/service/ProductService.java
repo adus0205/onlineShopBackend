@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pl.szupke.onlineShop.product.model.Product;
-import pl.szupke.onlineShop.product.repository.ProductRepository;
+import pl.szupke.onlineShop.common.model.Product;
+import pl.szupke.onlineShop.common.repository.ProductRepository;
 
 @Service
 @RequiredArgsConstructor

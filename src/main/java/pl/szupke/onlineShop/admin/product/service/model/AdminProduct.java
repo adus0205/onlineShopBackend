@@ -1,19 +1,22 @@
-package pl.szupke.onlineShop.product.model;
+package pl.szupke.onlineShop.admin.product.service.model;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.szupke.onlineShop.review.model.Review;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
+@Table(name = "product")
 @Getter
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Product {
+@AllArgsConstructor
+public class AdminProduct {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
@@ -22,11 +25,9 @@ public class Product {
     private String description;
     private String fullDescription;
     private BigDecimal price;
-    private String currency;
+
+    @Enumerated(EnumType.STRING)
+    private AdminProductCurrency currency;
     private String image;
     private String slug;
-    @OneToMany
-    @JoinColumn(name = "productId")
-    private List<Review> reviews;
-
 }

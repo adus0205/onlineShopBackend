@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.category.model;
+package pl.szupke.onlineShop.common.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
