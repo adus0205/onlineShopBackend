@@ -13,7 +13,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public Page<Product> getProduct (Pageable pageable){
+    public Page<Product> getProducts (Pageable pageable){
         return productRepository.findAll(pageable);
     }
 
