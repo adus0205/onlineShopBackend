@@ -3,7 +3,7 @@ package pl.szupke.onlineShop.review.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.szupke.onlineShop.common.model.Review;
-import pl.szupke.onlineShop.review.repository.ReviewRepository;
+import pl.szupke.onlineShop.common.repository.ReviewRepository;
 @RequiredArgsConstructor
 @Service
 public class ReviewService {

@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.admin.product.service.controller;
+package pl.szupke.onlineShop.admin.product.controller;
 
 
 import jakarta.validation.Valid;
@@ -10,11 +10,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.szupke.onlineShop.admin.product.service.controller.dto.AdminProductDto;
-import pl.szupke.onlineShop.admin.product.service.controller.dto.UploadResponse;
-import pl.szupke.onlineShop.admin.product.service.model.AdminProduct;
-import pl.szupke.onlineShop.admin.common.utils.AdminProductImageService;
-import pl.szupke.onlineShop.admin.common.utils.AdminProductService;
+import pl.szupke.onlineShop.admin.product.controller.dto.AdminProductDto;
+import pl.szupke.onlineShop.admin.product.controller.dto.UploadResponse;
+import pl.szupke.onlineShop.admin.product.model.AdminProduct;
+import pl.szupke.onlineShop.admin.product.service.AdminProductImageService;
+import pl.szupke.onlineShop.admin.product.service.AdminProductService;
 
 import java.io.IOException;
 import java.io.InputStream;

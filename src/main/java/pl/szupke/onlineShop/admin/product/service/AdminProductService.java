@@ -1,12 +1,12 @@
-package pl.szupke.onlineShop.admin.common.utils;
+package pl.szupke.onlineShop.admin.product.service;
 
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pl.szupke.onlineShop.admin.product.service.model.AdminProduct;
-import pl.szupke.onlineShop.admin.product.service.repository.AdminProductRepository;
+import pl.szupke.onlineShop.admin.product.model.AdminProduct;
+import pl.szupke.onlineShop.admin.product.repository.AdminProductRepository;
 
 @Service
 @RequiredArgsConstructor

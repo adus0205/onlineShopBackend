@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.szupke.onlineShop.common.dto.ProductListDto;
 import pl.szupke.onlineShop.common.model.Product;
 import pl.szupke.onlineShop.product.service.ProductService;
+import pl.szupke.onlineShop.product.service.dto.ProductDto;
 
 import java.util.List;
 
@@ -42,7 +43,9 @@ public class ProductController {
     }
 
     @GetMapping("/products/{slug}")
-    public Product getProductBySlug(@PathVariable @Pattern(regexp = "[a-z0-9\\-]+") @Length(max=255) String slug){
+    public ProductDto getProductBySlug(@PathVariable
+                                        @Pattern(regexp = "[a-z0-9\\-]+")
+                                        @Length(max=255) String slug){
         return productService.getProductBySlug(slug);
     }
 }
