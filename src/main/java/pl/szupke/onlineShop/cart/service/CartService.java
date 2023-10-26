@@ -3,10 +3,10 @@ package pl.szupke.onlineShop.cart.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.szupke.onlineShop.cart.model.Cart;
-import pl.szupke.onlineShop.cart.model.CartItem;
+import pl.szupke.onlineShop.common.model.Cart;
+import pl.szupke.onlineShop.common.model.CartItem;
 import pl.szupke.onlineShop.cart.model.dto.CartProductDto;
-import pl.szupke.onlineShop.cart.repository.CartRepository;
+import pl.szupke.onlineShop.common.repository.CartRepository;
 import pl.szupke.onlineShop.common.model.Product;
 import pl.szupke.onlineShop.common.repository.ProductRepository;
 

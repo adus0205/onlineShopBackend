@@ -5,9 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import pl.szupke.onlineShop.cart.model.Cart;
+import pl.szupke.onlineShop.common.model.Cart;
 import pl.szupke.onlineShop.cart.model.dto.CartProductDto;
-import pl.szupke.onlineShop.cart.repository.CartRepository;
+import pl.szupke.onlineShop.common.repository.CartRepository;
 import pl.szupke.onlineShop.common.model.Product;
 import pl.szupke.onlineShop.common.repository.ProductRepository;
 

@@ -1,9 +1,9 @@
-package pl.szupke.onlineShop.cart.repository;
+package pl.szupke.onlineShop.common.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import pl.szupke.onlineShop.cart.model.CartItem;
+import pl.szupke.onlineShop.common.model.CartItem;
 
 import java.util.List;
 

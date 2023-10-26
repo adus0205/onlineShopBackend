@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.cart.model;
+package pl.szupke.onlineShop.common.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

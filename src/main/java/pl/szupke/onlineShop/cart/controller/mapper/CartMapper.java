@@ -4,8 +4,8 @@ import pl.szupke.onlineShop.cart.controller.dto.CartSummaryDto;
 import pl.szupke.onlineShop.cart.controller.dto.CartSummaryItemDto;
 import pl.szupke.onlineShop.cart.controller.dto.ProductDto;
 import pl.szupke.onlineShop.cart.controller.dto.SummaryDto;
-import pl.szupke.onlineShop.cart.model.Cart;
-import pl.szupke.onlineShop.cart.model.CartItem;
+import pl.szupke.onlineShop.common.model.Cart;
+import pl.szupke.onlineShop.common.model.CartItem;
 import pl.szupke.onlineShop.common.model.Product;
 
 import java.math.BigDecimal;
