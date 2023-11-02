@@ -10,6 +10,7 @@ import pl.szupke.onlineShop.order.model.dto.InitOrder;
 import pl.szupke.onlineShop.order.model.dto.OrderDto;
 import pl.szupke.onlineShop.order.model.dto.OrderSummary;
 import pl.szupke.onlineShop.order.service.OrderService;
+import pl.szupke.onlineShop.order.service.PaymentService;
 import pl.szupke.onlineShop.order.service.ShipmentService;
 
 @RestController
@@ -19,6 +20,7 @@ public class OrderController {
 
     private final OrderService orderService;
     private final ShipmentService shipmentService;
+    private final PaymentService paymentService;
 
     @PostMapping()
     public OrderSummary placeOrder(@RequestBody OrderDto orderDto){
@@ -29,6 +31,7 @@ public class OrderController {
     public InitOrder initOrder(){
         return InitOrder.builder()
                 .shipment(shipmentService.getShipments())
+                .payment(paymentService.getPayments())
                 .build();
     }
 }

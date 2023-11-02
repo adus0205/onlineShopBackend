@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.order.model.dto;
+package pl.szupke.onlineShop.order.model;
 
 public enum ShipmentType {
     DELIVERYMAN, SELFPICKING

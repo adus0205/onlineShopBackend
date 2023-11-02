@@ -1,4 +1,4 @@
-package pl.szupke.onlineShop.order.model.dto;
+package pl.szupke.onlineShop.order.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,17 +8,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 
-import java.math.BigDecimal;
-
 @Entity
 @Getter
-public class Shipment {
+public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private BigDecimal price;
     @Enumerated(EnumType.STRING)
-    private ShipmentType type;
-    private boolean defaultShipment;
+    private PaymentType type;
+    private boolean defaultPayment;
+    private String note;
 }

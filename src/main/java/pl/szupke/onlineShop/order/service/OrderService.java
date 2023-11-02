@@ -10,11 +10,13 @@ import pl.szupke.onlineShop.common.repository.CartRepository;
 import pl.szupke.onlineShop.order.model.Order;
 import pl.szupke.onlineShop.order.model.OrderRow;
 import pl.szupke.onlineShop.order.model.OrderStatus;
+import pl.szupke.onlineShop.order.model.Payment;
 import pl.szupke.onlineShop.order.model.dto.OrderDto;
 import pl.szupke.onlineShop.order.model.dto.OrderSummary;
-import pl.szupke.onlineShop.order.model.dto.Shipment;
+import pl.szupke.onlineShop.order.model.Shipment;
 import pl.szupke.onlineShop.order.repository.OrderRepository;
 import pl.szupke.onlineShop.order.repository.OrderRowRepository;
+import pl.szupke.onlineShop.order.repository.PaymentRepository;
 import pl.szupke.onlineShop.order.repository.ShipmentRepository;
 
 import java.math.BigDecimal;
@@ -30,12 +32,14 @@ public class OrderService {
     private final CartItemRepository cartItemRepository;
     private final OrderRowRepository orderRowRepository;
     private final ShipmentRepository shipmentRepository;
+    private  final PaymentRepository paymentRepository;
     
     @Transactional
     public OrderSummary placeOrder(OrderDto orderDto) {
         // stworzenie zamówienia z wierszami
         Cart cart = cartRepository.findById(orderDto.getCartId()).orElseThrow();
         Shipment shipment = shipmentRepository.findById(orderDto.getShipmentId()).orElseThrow();
+        Payment payment = paymentRepository.findById(orderDto.getPaymentId()).orElseThrow();
         Order order = Order.builder()
                 .firstname(orderDto.getFirstname())
                 .lastname(orderDto.getLastname())
@@ -47,6 +51,7 @@ public class OrderService {
                 .placeDate(LocalDateTime.now())
                 .orderStatus(OrderStatus.NEW)
                 .grossValue(calculateGrossValue(cart.getItems(), shipment))
+                .payment(payment)
                 .build();
         // potem - zapisać zamówienie
         Order newOrder = orderRepository.save(order);
@@ -61,6 +66,7 @@ public class OrderService {
                 .placeDate(newOrder.getPlaceDate())
                 .status(newOrder.getOrderStatus())
                 .grossValue(newOrder.getGrossValue())
+                .payment(payment)
                 .build();
     }
 
