@@ -23,7 +23,7 @@ public class AdminOrderService {
         );
     }
 
-    public AdminOrder getorder(Long id) {
+    public AdminOrder getOrder(Long id) {
         return adminOrderRepository.findById(id).orElseThrow();
     }
 }

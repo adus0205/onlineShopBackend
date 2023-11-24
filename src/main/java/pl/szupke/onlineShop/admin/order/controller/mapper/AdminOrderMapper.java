@@ -13,13 +13,13 @@ public class AdminOrderMapper {
         return new PageImpl<AdminOrderDto>(mapToDtoList(orders.getContent()), orders.getPageable(), orders.getTotalElements());
     }
 
-    public static List<AdminOrderDto> mapToDtoList(List<AdminOrder> content){
+    private static List<AdminOrderDto> mapToDtoList(List<AdminOrder> content){
         return content.stream()
                 .map(AdminOrderMapper::mapToAdminOrderDto)
                 .toList();
     }
 
-    public static AdminOrderDto mapToAdminOrderDto(AdminOrder adminOrder){
+    private static AdminOrderDto mapToAdminOrderDto(AdminOrder adminOrder){
         return AdminOrderDto.builder()
                 .id(adminOrder.getId())
                 .orderStatus(adminOrder.getOrderStatus())

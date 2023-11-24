@@ -31,10 +31,10 @@ public class AdminOrder {
     @JoinColumn(name = "orderId")
     private List<AdminOrderRow>orderRows;
     private BigDecimal grossValue;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String street;
-    private String zipCode;
+    private String zipcode;
     private String city;
     private String email;
     private String phone;

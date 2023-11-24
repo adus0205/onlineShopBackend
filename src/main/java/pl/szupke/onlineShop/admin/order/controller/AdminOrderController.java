@@ -26,6 +26,6 @@ public class AdminOrderController {
 
     @GetMapping("/{id}")
     public AdminOrder getOrder(@PathVariable Long id){
-        return adminOrderService.getorder(id);
+        return adminOrderService.getOrder(id);
     }
 }
