@@ -29,10 +29,14 @@ public class AdminOrderStatsService {
         for (int i = from.getDayOfMonth(); i <= to.getDayOfMonth() ; i++) {
             result.put(i, aggregateValues(i, orders));
         }
+        List<Long> ordersList = result.values().stream().map(v ->  v.orders()).toList();
+        List<BigDecimal> salesList = result.values().stream().map(v ->  v.sales()).toList();
         return AdminOrderStats.builder()
                 .label(result.keySet().stream().toList())
                 .sale(result.values().stream().map(o -> o.sales).toList())
                 .order(result.values().stream().map(o -> o.orders).toList())
+                .ordersCount(ordersList.stream().reduce(Long::sum).orElse(0L))
+                .salesSum(salesList.stream().reduce(BigDecimal::add).orElse(BigDecimal.ZERO))
                 .build();
     }
 
@@ -47,6 +51,5 @@ public class AdminOrderStatsService {
         }
         return new AdminOrdersStatsValue(totalValue, orderCount);
     }
-
     private record AdminOrdersStatsValue(BigDecimal sales, Long orders){}
 }
