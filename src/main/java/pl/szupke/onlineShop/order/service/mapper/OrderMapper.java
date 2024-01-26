@@ -4,7 +4,7 @@ import pl.szupke.onlineShop.common.model.Cart;
 import pl.szupke.onlineShop.common.model.CartItem;
 import pl.szupke.onlineShop.order.model.Order;
 import pl.szupke.onlineShop.order.model.OrderRow;
-import pl.szupke.onlineShop.order.model.OrderStatus;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.order.model.Payment;
 import pl.szupke.onlineShop.order.model.Shipment;
 import pl.szupke.onlineShop.order.model.dto.OrderDto;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.szupke.onlineShop.admin.order.model.AdminOrder;
 import pl.szupke.onlineShop.admin.order.model.AdminOrderLog;
-import pl.szupke.onlineShop.admin.order.model.AdminOrderStatus;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.admin.order.repository.AdminOrderLogRepository;
 import pl.szupke.onlineShop.admin.order.repository.AdminOrderRepository;
 
@@ -49,8 +49,8 @@ public class AdminOrderService {
     }
 
     private void procesOrderStatusChange(AdminOrder adminOrder, Map<String, String> values) {
-        AdminOrderStatus oldStatus = adminOrder.getOrderStatus();
-        AdminOrderStatus newStatus = AdminOrderStatus.valueOf(values.get("orderStatus"));
+        OrderStatus oldStatus = adminOrder.getOrderStatus();
+        OrderStatus newStatus = OrderStatus.valueOf(values.get("orderStatus"));
         if (oldStatus == newStatus){
             return;
         }
@@ -61,7 +61,7 @@ public class AdminOrderService {
 
 
 
-    private void logStatusChange(Long orderId, AdminOrderStatus oldStatus, AdminOrderStatus newStatus){
+    private void logStatusChange(Long orderId, OrderStatus oldStatus, OrderStatus newStatus){
         adminOrderLogRepository.save(AdminOrderLog.builder()
                         .created(LocalDateTime.now())
                         .orderId(orderId)

@@ -3,7 +3,7 @@ package pl.szupke.onlineShop.admin.order.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.szupke.onlineShop.admin.order.model.AdminOrder;
-import pl.szupke.onlineShop.admin.order.model.AdminOrderStatus;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.admin.order.model.dto.AdminOrderStats;
 import pl.szupke.onlineShop.admin.order.repository.AdminOrderRepository;
 
@@ -23,7 +23,7 @@ public class AdminOrderStatsService {
         List<AdminOrder> orders = adminOrderRepository.findAllByPlaceDateIsBetweenAndOrderStatus(
                 from,
                 to,
-                AdminOrderStatus.COMPLETED
+                OrderStatus.COMPLETED
         );
         TreeMap<Integer, AdminOrdersStatsValue> result = new TreeMap<>();
         for (int i = from.getDayOfMonth(); i <= to.getDayOfMonth() ; i++) {

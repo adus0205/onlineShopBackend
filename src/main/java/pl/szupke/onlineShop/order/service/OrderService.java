@@ -11,12 +11,16 @@ import pl.szupke.onlineShop.order.model.Order;
 import pl.szupke.onlineShop.order.model.Payment;
 import pl.szupke.onlineShop.order.model.Shipment;
 import pl.szupke.onlineShop.order.model.dto.OrderDto;
+import pl.szupke.onlineShop.order.model.dto.OrderListDto;
 import pl.szupke.onlineShop.order.model.dto.OrderSummary;
 import pl.szupke.onlineShop.order.repository.OrderRepository;
 import pl.szupke.onlineShop.order.repository.OrderRowRepository;
 import pl.szupke.onlineShop.order.repository.PaymentRepository;
 import pl.szupke.onlineShop.order.repository.ShipmentRepository;
 
+import java.util.List;
+
+import static pl.szupke.onlineShop.order.service.mapper.OrderDtoMapper.mapToOrderListDto;
 import static pl.szupke.onlineShop.order.service.mapper.OrderEmailMeassageMapper.createEmailMessage;
 import static pl.szupke.onlineShop.order.service.mapper.OrderMapper.createNewOrder;
 import static pl.szupke.onlineShop.order.service.mapper.OrderMapper.createOrderSummary;
@@ -74,6 +78,10 @@ public class OrderService {
                 )
                 .peek(orderRowRepository::save)
                 .toList();
+    }
+
+    public List<OrderListDto> getOrdersForCustomer(Long userId) {
+        return mapToOrderListDto(orderRepository.findByUserId(userId));
     }
 
 }

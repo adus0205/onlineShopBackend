@@ -13,7 +13,7 @@ import pl.szupke.onlineShop.admin.order.controller.dto.AdminInitDataDto;
 import pl.szupke.onlineShop.admin.order.controller.dto.AdminOrderDto;
 import pl.szupke.onlineShop.admin.order.controller.mapper.AdminOrderMapper;
 import pl.szupke.onlineShop.admin.order.model.AdminOrder;
-import pl.szupke.onlineShop.admin.order.model.AdminOrderStatus;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.admin.order.service.AdminOrderService;
 
 import java.util.HashMap;
@@ -48,7 +48,7 @@ public class AdminOrderController {
 
     private  Map<String, String> createOrderStatusesMap() {
         HashMap<String, String> statuses = new HashMap<>();
-        for (AdminOrderStatus value : AdminOrderStatus.values()){
+        for (OrderStatus value : OrderStatus.values()){
             statuses.put(value.name(), value.getValue());
         }
         return statuses;

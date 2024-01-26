@@ -12,7 +12,7 @@ import pl.szupke.onlineShop.common.model.CartItem;
 import pl.szupke.onlineShop.common.model.Product;
 import pl.szupke.onlineShop.common.repository.CartItemRepository;
 import pl.szupke.onlineShop.common.repository.CartRepository;
-import pl.szupke.onlineShop.order.model.OrderStatus;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.order.model.Payment;
 import pl.szupke.onlineShop.order.model.PaymentType;
 import pl.szupke.onlineShop.order.model.Shipment;

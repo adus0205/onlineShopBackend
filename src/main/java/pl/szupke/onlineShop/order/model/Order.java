@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
