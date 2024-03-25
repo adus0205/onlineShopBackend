@@ -1,14 +1,14 @@
-## Online Shop
-This is a fullstack online store project. The application includes the basic functions of an online store, as well as those that are a bit more advanced. There is integration with a payment gateway in this application, sending emails and much more.
+# Online Shop
+This is a fullstack online shope project. The application includes the basic functions of an online store, as well as those that are a bit more advanced. There is integration with a payment gateway in this application, sending emails and much more.
 
 The application in a nutshell has such functionalities:
 
 On the administrative side:
 
-Add, edit and delete products.
-Add, edit and delete categories
-Order management, including exporting orders to CSV file and viewing sales statistics in the form of a chart
-Moderation of user reviews (approval, deletion)
+  - Add, edit and delete products.
+  - Add, edit and delete categories
+  - Order management, including exporting orders to CSV file and viewing sales statistics in the form of a chart
+  - Moderation of user reviews (approval, deletion)
 
 From the user side:
 
