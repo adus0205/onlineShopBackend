@@ -1,4 +1,4 @@
-Online Shop
+# Online Shop
 This is a fullstack online store project. The application includes the basic functions of an online store, as well as those that are a bit more advanced. There is integration with a payment gateway in this application, sending emails and much more.
 
 The application in a nutshell has such functionalities:
