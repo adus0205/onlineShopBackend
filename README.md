@@ -1,4 +1,4 @@
-# Online Shop
+## Online Shop
 This is a fullstack online store project. The application includes the basic functions of an online store, as well as those that are a bit more advanced. There is integration with a payment gateway in this application, sending emails and much more.
 
 The application in a nutshell has such functionalities:
@@ -9,6 +9,7 @@ Add, edit and delete products.
 Add, edit and delete categories
 Order management, including exporting orders to CSV file and viewing sales statistics in the form of a chart
 Moderation of user reviews (approval, deletion)
+
 From the user side:
 
 Viewing products
@@ -30,7 +31,8 @@ Technologies Used
 Screenshots
 Setup
 Contact
-Technologies Used
+
+# Technologies Used
 Java - version 17.0.3.1
 Spring Boot (with Spring Reactive Web, Spring Security, Spring Web, Spring Data JPA, Spring Test and other) - version 3.1.0
 MySQL - version 8.0.33
@@ -39,7 +41,7 @@ Liquibase - version 4.23.0
 Maven - version 4.0.0
 Lombok - version 1.18.28
 
-How this it works:
+# How this it works:
 Clone this repository to your IDE (https://github.com/jakubknap/ShopBackend.git)
 The project uses Maven as a build tool. It already contains .mvn wrapper script, so there's no need to install maven.
 Manually create the database at: localhost:3306
