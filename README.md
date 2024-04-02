@@ -20,9 +20,8 @@ The application in a nutshell has such functionalities:
   - Email notifications
   - In a nutshell, this is the outline of the application. There is also a mechanism for registration, login and password reminders.
 
-I don't know how long the application will run, but there is a demo on display, available at: https://shopfrontend-production-f14c.up.railway.app/
 
-### For the administrator: https://shopfrontend-production-f14c.up.railway.app/admin
+### For the administrator: https:
 
   - The default login is: admin
   - Default password is: test
@@ -42,7 +41,7 @@ I don't know how long the application will run, but there is a demo on display, 
   - Lombok - version 1.18.28
 
 ## How this it works:
-  - Clone this repository to your IDE (https://github.com/jakubknap/ShopBackend.git)
+  - Clone this repository to your IDE (https://github.com/adus0205/onlineShopBackend.git)
   - The project uses Maven as a build tool. It already contains .mvn wrapper script, so there's no need to install maven.
   - Manually create the database at: localhost:3306
  CREATE DATABASE shop
