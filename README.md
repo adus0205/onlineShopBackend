@@ -33,7 +33,7 @@ The application in a nutshell has such functionalities:
 
 ## Technologies Used
   - Java - version 17.0.3.1
-  - Spring Boot (with Spring Reactive Web, Spring Security, Spring Web, Spring Data JPA, Spring Test and other) - version 3.1.0
+  - Spring Boot (with Spring Reactive Web, Spring Security, Spring Web, Spring Data JPA, Spring Test and other) - version 3.2.0
   - MySQL - version 8.0.33
   - Jjwt - version 4.0.0
   - Liquibase - version 4.23.0
