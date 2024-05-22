@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.szupke.onlineShop.common.model.OrderStatus;
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ import java.util.List;
 @Entity
 @Table(name = "`order`")
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,4 +49,5 @@ public class Order {
     @OneToOne
     private Payment payment;
     private long userId;
+    private String orderHash;
 }

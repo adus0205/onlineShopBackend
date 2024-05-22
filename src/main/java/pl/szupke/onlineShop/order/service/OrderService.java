@@ -1,23 +1,31 @@
 package pl.szupke.onlineShop.order.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.szupke.onlineShop.common.mail.EmailClientService;
 import pl.szupke.onlineShop.common.model.Cart;
+import pl.szupke.onlineShop.common.model.OrderStatus;
 import pl.szupke.onlineShop.common.repository.CartItemRepository;
 import pl.szupke.onlineShop.common.repository.CartRepository;
 import pl.szupke.onlineShop.order.model.Order;
+import pl.szupke.onlineShop.order.model.OrderLog;
 import pl.szupke.onlineShop.order.model.Payment;
+import pl.szupke.onlineShop.order.model.PaymentType;
 import pl.szupke.onlineShop.order.model.Shipment;
+import pl.szupke.onlineShop.order.model.dto.NotificationReceiveDto;
 import pl.szupke.onlineShop.order.model.dto.OrderDto;
 import pl.szupke.onlineShop.order.model.dto.OrderListDto;
 import pl.szupke.onlineShop.order.model.dto.OrderSummary;
+import pl.szupke.onlineShop.order.repository.OrderLogRepository;
 import pl.szupke.onlineShop.order.repository.OrderRepository;
 import pl.szupke.onlineShop.order.repository.OrderRowRepository;
 import pl.szupke.onlineShop.order.repository.PaymentRepository;
 import pl.szupke.onlineShop.order.repository.ShipmentRepository;
+import pl.szupke.onlineShop.order.service.payment.p24.PaymentMethodP24;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static pl.szupke.onlineShop.order.service.mapper.OrderDtoMapper.mapToOrderListDto;
@@ -29,6 +37,7 @@ import static pl.szupke.onlineShop.order.service.mapper.OrderMapper.mapToOrderRo
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class OrderService {
 
     private final OrderRepository orderRepository;
@@ -38,6 +47,8 @@ public class OrderService {
     private final ShipmentRepository shipmentRepository;
     private final PaymentRepository paymentRepository;
     private final EmailClientService emailClientService;
+    private final PaymentMethodP24 paymentMethodP24;
+    private final OrderLogRepository orderLogRepository;
     
     @Transactional
     public OrderSummary placeOrder(OrderDto orderDto, Long userId) {
@@ -48,7 +59,15 @@ public class OrderService {
         saveOrderRows(cart, newOrder.getId(), shipment);
         clearOrderCart(orderDto);
         sendConfirmemail(newOrder);
-        return createOrderSummary(newOrder, payment);
+        String redirectUrl = initPaymentIfNeeded(newOrder);
+        return createOrderSummary(newOrder, payment, redirectUrl);
+    }
+
+    private String initPaymentIfNeeded(Order newOrder) {
+        if (newOrder.getPayment().getType() == PaymentType.P24_ONLINE){
+            return paymentMethodP24.initPayment(newOrder);
+        }
+        return null;
     }
 
     private void sendConfirmemail(Order newOrder) {
@@ -84,4 +103,22 @@ public class OrderService {
         return mapToOrderListDto(orderRepository.findByUserId(userId));
     }
 
+    public Order getOrderByOrderHash(String orderHash) {
+        return orderRepository.findByOrderHash(orderHash).orElseThrow();
+    }
+
+    @Transactional
+    public void receiveNotification(String orderHash, NotificationReceiveDto receiveDto) {
+        Order order = getOrderByOrderHash(orderHash);
+        String status = paymentMethodP24.receiveNotification(order, receiveDto);
+        if (status.equals("success")){
+            OrderStatus oldStatus = order.getOrderStatus();
+            order.setOrderStatus(OrderStatus.PAID);
+            orderLogRepository.save(OrderLog.builder()
+                            .created(LocalDateTime.now())
+                            .orderId(order.getId())
+                            .note("Zamówienie zostało opłacone przez serwis Przelewy24, id płatności : " + receiveDto.getStatement() + " , zmieniono status z" + oldStatus + " na  " + order.getOrderStatus().getValue())
+                    .build());
+        }
+    }
 }

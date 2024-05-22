@@ -1,5 +1,6 @@
 package pl.szupke.onlineShop.order.service.mapper;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import pl.szupke.onlineShop.common.model.Cart;
 import pl.szupke.onlineShop.common.model.CartItem;
 import pl.szupke.onlineShop.order.model.Order;
@@ -30,6 +31,7 @@ public class OrderMapper {
                 .grossValue(calculateGrossValue(cart.getItems(), shipment))
                 .payment(payment)
                 .userId(userId)
+                .orderHash(RandomStringUtils.randomAlphanumeric(12))
                 .build();
     }
 
@@ -41,13 +43,14 @@ public class OrderMapper {
                 .add(shipment.getPrice());
     }
 
-    public static OrderSummary createOrderSummary(Order newOrder, Payment payment) {
+    public static OrderSummary createOrderSummary(Order newOrder, Payment payment, String redirectUrl) {
         return OrderSummary.builder()
                 .id(newOrder.getId())
                 .placeDate(newOrder.getPlaceDate())
                 .status(newOrder.getOrderStatus())
                 .grossValue(newOrder.getGrossValue())
                 .payment(payment)
+                .redirectUrl(redirectUrl)
                 .build();
     }
 
