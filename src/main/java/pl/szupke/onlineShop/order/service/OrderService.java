@@ -108,16 +108,16 @@ public class OrderService {
     }
 
     @Transactional
-    public void receiveNotification(String orderHash, NotificationReceiveDto receiveDto) {
+    public void receiveNotification(String orderHash, NotificationReceiveDto receiveDto, String remoteAddr) {
         Order order = getOrderByOrderHash(orderHash);
-        String status = paymentMethodP24.receiveNotification(order, receiveDto);
+        String status = paymentMethodP24.receiveNotification(order, receiveDto, remoteAddr);
         if (status.equals("success")){
             OrderStatus oldStatus = order.getOrderStatus();
             order.setOrderStatus(OrderStatus.PAID);
             orderLogRepository.save(OrderLog.builder()
                             .created(LocalDateTime.now())
                             .orderId(order.getId())
-                            .note("Zamówienie zostało opłacone przez serwis Przelewy24, id płatności : " + receiveDto.getStatement() + " , zmieniono status z" + oldStatus + " na  " + order.getOrderStatus().getValue())
+                            .note("Zamówienie zostało opłacone przez serwis Przelewy24, id płatności : " + receiveDto.getStatement() + " , zmieniono status z" + oldStatus.getValue() + " na  " + order.getOrderStatus().getValue())
                     .build());
         }
     }
